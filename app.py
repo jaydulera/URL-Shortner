@@ -189,51 +189,6 @@ def deleteUrls(shortURL):
         return "Error", 400
     return "Deleted", 200
 
-
-
-
-@app.route('/admin/login', methods=['POST'])
-def login():
-    username = request.json.get('username', None)
-    password = request.json.get('password', None)
-
-    if not username or not password:
-        return 'missing password or username', 400
-
-    if(username == "Onkar" and password == "Onkar"):
-        access_token = create_access_token(identity={"username": username})
-        return {"access_token": access_token}, 200
-    else:
-        return "Invalid username or password", 400
-
-
-@app.route('/admin/getUser', methods = ['GET'])
-@jwt_required()
-def getUser():
-    user = get_jwt_identity()
-    print(user)
-    return user['username']
-
-@app.route('/admin/getUsers', methods = ['GET'])
-@jwt_required()
-def getUsers():
-    users = {}
-    idx = 1
-    for user in functions.User:
-        users[idx] = user['Username']
-        idx = idx + 1
-    print(len(functions.User))
-    return users
-
-@app.route('/admin/getUserByUsername/<string:username>' , methods = ['GET'])
-@jwt_required()
-def getUserByUsername(username):
-    for user in functions.User:
-        if user['Username'] == username:
-            return user
-    return "User not found"
-
-
 @app.route('/getURLs', methods = ['GET'])
 @jwt_required()
 def getURL():
