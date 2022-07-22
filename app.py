@@ -124,8 +124,6 @@ def getPrioritizedUrls():
     return jsonify(readPrioritizedURLs()), 200
 
 
-#####################################################################################################
-
 @app.route('/admin/getAdminURLs', methods = ['GET'])
 @jwt_required()
 def getAdminURLs():
