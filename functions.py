@@ -3,11 +3,11 @@ URLS = [{"url":"google.com", "shortURL":"gg.com", "isPrioritized": True, "isActi
 prioritizedURLs = [{"url":"google.com", "shortURL":"gg.com", "isPrioritized": True, "isActive":True}]
 Admin = [{"name":"AdminUser", "username": "Admin", "email":"admin@gmail.com", "password":"Admin", "listOfUrl":[], "isActive":True}]
 
-def checkUnique(shortUrlId):
-    for url in URLS:
-        if(url.shortUrlId == shortUrlId):
-            return False
-    return True
+# def checkUnique(shortUrlId):
+#     for url in URLS:
+#         if(url['shortUrlId'] == shortUrlId):
+#             return False
+#     return True
 
 def findUsername(username):
     for user in User:
